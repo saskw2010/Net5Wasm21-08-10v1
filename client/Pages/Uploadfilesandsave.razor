@@ -1,0 +1,23 @@
+﻿@page "/uploadfilesandsave"
+@layout MainLayout
+@inherits Net5Wasm.Pages.UploadfilesandsaveComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Net5Wasm.Models.Net5Wasmconn
+@using Microsoft.AspNetCore.Identity;
+@using Net5Wasm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="uploadfilesandsave">
+    </RadzenHeading>
+    <RadzenUpload ChooseText="Single file upload" style="width: 281.609375px" Url="upload/single" Progress="@Upload0Progress">
+   
+    
+    </RadzenUpload>
+  </ChildContent>
+</RadzenContent>

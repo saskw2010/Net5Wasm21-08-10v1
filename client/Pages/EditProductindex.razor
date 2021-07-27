@@ -1,0 +1,187 @@
+﻿@page "/edit-productindex/{Id}"
+@layout MainLayout
+@inherits Net5Wasm.Pages.EditProductindexComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Net5Wasm.Models.Net5Wasmconn
+@using Microsoft.AspNetCore.Identity;
+@using Net5Wasm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Edit Productindex">
+    </RadzenHeading>
+    <div  class="row">
+      <div class="col-md-9">
+        <RadzenLabel style="font-weight: bold" Text="Item no longer available." Visible="@(!canEdit)">
+        </RadzenLabel>
+      </div>
+      <div class="col-md-3">
+        <RadzenButton ButtonStyle="ButtonStyle.Secondary" style="margin-bottom: 20px" Text="Close" Visible="@(!canEdit)" Click="@CloseButtonClick">
+        </RadzenButton>
+      </div>
+    </div>
+    <div  class="row">
+      <div class="col-md-9">
+        <RadzenLabel style="font-weight: bold" Text="Another user has made conflicting changes to one or more of the fields you have modified. Please reload." Visible="@hasChanges">
+        </RadzenLabel>
+      </div>
+      <div class="col-md-3">
+        <RadzenButton ButtonStyle="ButtonStyle.Secondary" Icon="autorenew" style="margin-bottom: 20px" Text="Reload" Visible="@hasChanges" Click="@Button0Click">
+        </RadzenButton>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@product" TItem="Net5Wasm.Models.Net5Wasmconn.Product" Visible="@(product != null && canEdit)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="CreatedOn" style="width: 100%" Text="Created On" Visible="false">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker style="display: block; width: 100%" @bind-Value="@(product.CreatedOn)" Visible="false" Name="CreatedOn">
+                </RadzenDatePicker>
+                <RadzenRequiredValidator Component="CreatedOn" style="position: absolute" Text="CreatedOn is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="ModifiedOn" style="width: 100%" Text="Modified On" Visible="false">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker style="width: 100%" @bind-Value="@(product.ModifiedOn)" Visible="false" Name="ModifiedOn">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="IsDeleted" style="width: 100%" Text="Is Deleted" Visible="false">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenCheckBox @bind-Value="@(product.IsDeleted)" Visible="false" Name="IsDeleted">
+                </RadzenCheckBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="DeletedOn" style="width: 100%" Text="Deleted On" Visible="false">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker style="width: 100%" @bind-Value="@(product.DeletedOn)" Visible="false" Name="DeletedOn">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Name" style="width: 100%" Text="Name">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(product.Name)" Name="Name">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Name" style="position: absolute" Text="Name is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Description" style="width: 100%" Text="Description">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="1000" style="width: 100%" @bind-Value="@(product.Description)" Name="Description">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="ImageSource" style="width: 100%" Text="Image Source">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox Disabled="true" MaxLength="2048" style="display: block; width: 100%" @bind-Value="@(product.ImageSource)" Name="ImageSource">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="ImageSource" style="position: absolute" Text="ImageSource is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Quantity" style="width: 100%" Text="Quantity">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(product.Quantity)" Name="Quantity">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="Quantity" style="position: absolute" Text="Quantity is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Price" style="width: 100%" Text="Price">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(product.Price)" Name="Price">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="Price" style="position: absolute" Text="Price is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="CategoryId" style="width: 100%" Text="Category">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDownDataGrid Count="@getCategoriesForCategoryIdCount" Data="@getCategoriesForCategoryIdResult" Placeholder="Choose Category" SelectedValue="@getByCategoriesForCategoryIdResult" ShowSearch="false" style="display: block; width: 100%" TextProperty="Name" @bind-Value="@(product.CategoryId)" ValueProperty="Id" Name="CategoryId" LoadData="@CategoryIdLoadData">
+                </RadzenDropDownDataGrid>
+                <RadzenRequiredValidator Component="CategoryId" DefaultValue="0" style="position: absolute" Text="CategoryId is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="ETag" style="width: 100%" Text="E Tag" Visible="false">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox style="width: 100%" @bind-Value="@(product.ETag)" Visible="false" Name="ETag">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="CategoryId" style="width: 100%" Text="Category">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenImage style="border-radius: 14px; display: inline-block; height: 170px; text-align: center; vertical-align: middle; width: 170px" src="@(product.ImageSource)">
+                </RadzenImage>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Save">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="Cancel" Click="@Button4Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

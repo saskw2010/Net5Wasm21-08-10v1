@@ -1,0 +1,111 @@
+﻿@page "/edit-orders-product/{OrderId}/{ProductId}"
+@layout MainLayout
+@inherits Net5Wasm.Pages.EditOrdersProductComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Net5Wasm.Models.Net5Wasmconn
+@using Microsoft.AspNetCore.Identity;
+@using Net5Wasm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+<RadzenContent Container="main">
+  <ChildContent>
+    <div  class="row">
+      <div class="col-md-9">
+        <RadzenLabel style="font-weight: bold" Text="Item no longer available." Visible="@(!canEdit)">
+        </RadzenLabel>
+      </div>
+      <div class="col-md-3">
+        <RadzenButton ButtonStyle="ButtonStyle.Secondary" style="margin-bottom: 20px" Text="Close" Visible="@(!canEdit)" Click="@CloseButtonClick">
+        </RadzenButton>
+      </div>
+    </div>
+    <div  class="row">
+      <div class="col-md-9">
+        <RadzenLabel style="font-weight: bold" Text="Another user has made conflicting changes to one or more of the fields you have modified. Please reload." Visible="@hasChanges">
+        </RadzenLabel>
+      </div>
+      <div class="col-md-3">
+        <RadzenButton ButtonStyle="ButtonStyle.Secondary" Icon="autorenew" style="margin-bottom: 20px" Text="Reload" Visible="@hasChanges" Click="@Button0Click">
+        </RadzenButton>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm TItem="Net5Wasm.Models.Net5Wasmconn.OrdersProduct" Data="@ordersproduct" Visible="@(ordersproduct != null && canEdit)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Order" Component="OrderId" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDownDataGrid Data="@getOrdersForOrderIdResult" TextProperty="UserId" ValueProperty="Id" Placeholder="Choose Order" ShowSearch="false" Count="@getOrdersForOrderIdCount" @bind-Value="@(ordersproduct.OrderId)" style="display: block; width: 100%" SelectedValue="@getByOrdersForOrderIdResult" Name="OrderId" LoadData="@OrderIdLoadData">
+                </RadzenDropDownDataGrid>
+                <RadzenRequiredValidator Component="OrderId" Text="OrderId is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Product" Component="ProductId" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDownDataGrid Data="@getProductsForProductIdResult" TextProperty="Name" ValueProperty="Id" Placeholder="Choose Product" ShowSearch="false" Count="@getProductsForProductIdCount" @bind-Value="@(ordersproduct.ProductId)" style="display: block; width: 100%" SelectedValue="@getByProductsForProductIdResult" Name="ProductId" LoadData="@ProductIdLoadData">
+                </RadzenDropDownDataGrid>
+                <RadzenRequiredValidator Component="ProductId" Text="ProductId is required" style="position: absolute" DefaultValue="0">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Created On" Component="CreatedOn" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="display: block; width: 100%" @bind-Value="@(ordersproduct.CreatedOn)" Name="CreatedOn">
+                </RadzenDatePicker>
+                <RadzenRequiredValidator Component="CreatedOn" Text="CreatedOn is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Modified On" Component="ModifiedOn" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="width: 100%" @bind-Value="@(ordersproduct.ModifiedOn)" Name="ModifiedOn">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Quantity" Component="Quantity" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(ordersproduct.Quantity)" Name="Quantity">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="Quantity" Text="Quantity is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="Cancel" Click="@Button4Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

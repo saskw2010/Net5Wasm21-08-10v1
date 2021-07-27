@@ -1,0 +1,91 @@
+﻿@page "/add-order"
+@layout MainLayout
+@inherits Net5Wasm.Pages.AddOrderComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Net5Wasm.Models.Net5Wasmconn
+@using Microsoft.AspNetCore.Identity;
+@using Net5Wasm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@order" Visible="@(order != null)" TItem="Net5Wasm.Models.Net5Wasmconn.Order" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Id" Component="Id" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="450" style="display: block; width: 100%" @bind-Value="@(order.Id)" Name="Id">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Id" Text="Id is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Created On" Component="CreatedOn" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="display: block; width: 100%" @bind-Value="@(order.CreatedOn)" Name="CreatedOn">
+                </RadzenDatePicker>
+                <RadzenRequiredValidator Component="CreatedOn" Text="CreatedOn is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Modified On" Component="ModifiedOn" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="width: 100%" @bind-Value="@(order.ModifiedOn)" Name="ModifiedOn">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="User Id" Component="UserId" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="450" style="display: block; width: 100%" @bind-Value="@(order.UserId)" Name="UserId">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="UserId" Text="UserId is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Address" Component="DeliveryAddressId" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDownDataGrid Data="@getAddressesForDeliveryAddressIdResult" TextProperty="Country" ValueProperty="Id" Placeholder="Choose Address" ShowSearch="false" Count="@getAddressesForDeliveryAddressIdCount" style="display: block; width: 100%" @bind-Value="@(order.DeliveryAddressId)" Name="DeliveryAddressId" LoadData="@DeliveryAddressIdLoadData">
+                </RadzenDropDownDataGrid>
+                <RadzenRequiredValidator Component="DeliveryAddressId" Text="DeliveryAddressId is required" style="position: absolute" DefaultValue="0">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

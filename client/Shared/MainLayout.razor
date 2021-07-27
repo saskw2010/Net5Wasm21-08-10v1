@@ -1,0 +1,91 @@
+﻿@inherits Net5Wasm.Layouts.MainLayoutComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Net5Wasm.Models.Net5Wasmconn
+@using Microsoft.AspNetCore.Identity;
+@using Net5Wasm.Models
+<RadzenDialog />
+<RadzenNotification />
+<RadzenTooltip />
+<RadzenContextMenu />
+
+<RadzenHeader>
+  <ChildContent>
+    <div class="row justify-content-start align-items-center">
+      <div class="col-6 d-flex align-items-center">
+        <RadzenSidebarToggle Click="@SidebarToggle0Click">
+        </RadzenSidebarToggle>
+        <RadzenLabel Text="Net5Wasm">
+        </RadzenLabel>
+      </div>
+      <div class="col-6 text-right" style="height: 36px">
+        <RadzenProfileMenu style="height: 36px; margin-top: 0px" Visible="@(Security.IsAuthenticated())" Click="@Profilemenu0Click">
+          <ChildContent>
+            <RadzenProfileMenuItem Path="profile" Icon="settings" Text="Profile" Visible="@Security.IsInRole(new string[]{"Authenticated"})">
+            </RadzenProfileMenuItem>
+            <RadzenProfileMenuItem Path="application-users" Icon="person" Text="Users" Visible="@Security.IsInRole(new string[]{"Authenticated"})">
+            </RadzenProfileMenuItem>
+            <RadzenProfileMenuItem Path="application-roles" Icon="security" Text="Roles" Visible="@Security.IsInRole(new string[]{"Authenticated"})">
+            </RadzenProfileMenuItem>
+            <RadzenProfileMenuItem Text="Logout" Value="Logout" Icon="power_settings_new">
+            </RadzenProfileMenuItem>
+          </ChildContent>
+          <Template>
+            <RadzenLabel Text="@($"{(Security.User?.Name)}")">
+            </RadzenLabel>
+          </Template>
+        </RadzenProfileMenu>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenHeader>
+<RadzenBody @ref="body0">
+  <ChildContent>
+    <RadzenContentContainer Name="main">
+    @Body
+    </RadzenContentContainer>
+  </ChildContent>
+</RadzenBody>
+<RadzenSidebar @ref="sidebar0">
+  <ChildContent>
+    <RadzenPanelMenu style="height: 100%">
+      <ChildContent>
+        <RadzenPanelMenuItem Path="addresses" Text="Addresses" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="categories" Text="Categories" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="orders" Text="Orders" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="orders-products" Text="Orders Products" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="products" Text="Products" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="shopping-carts" Text="Shopping Carts" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="shopping-carts-products" Text="Shopping Carts Products" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="wishlists" Text="Wishlists" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="wishlists-products" Text="Wishlists Products" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Icon="cloud_upload" Path="uploadfilesandsave" Text="uploadfilesandsave" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Icon="perm_media" Path="uploadpage" Target="_self" Text="uploadpage" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="copy-of-products" Text="Copy of Products" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="productindex" Text="Productindex" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="Uploadpagez" Text="Uploadpagez">
+        </RadzenPanelMenuItem>
+      </ChildContent>
+    </RadzenPanelMenu>
+  </ChildContent>
+</RadzenSidebar>
+<RadzenFooter>
+  <ChildContent>
+    <RadzenLabel Text="Net5Wasm, Copyright Ⓒ 2021">
+    </RadzenLabel>
+  </ChildContent>
+</RadzenFooter>

@@ -1,0 +1,54 @@
+{
+  "access": "Authenticated",
+  "components": [
+    {
+      "components": [
+        {
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "uploadfilesandsave",
+          "type": "heading"
+        },
+        {
+          "chooseText": "Single file upload",
+          "events": {
+            "progress": [
+              {
+                "condition": "",
+                "name": "OnProgress",
+                "parameters": [
+                  {
+                    "name": "args",
+                    "type": "Radzen.UploadProgressArgs",
+                    "value": "args"
+                  },
+                  {
+                    "name": "name",
+                    "type": "string",
+                    "value": "Single file upload"
+                  }
+                ],
+                "schema": {
+                  "$ref": "#/definitions/Void",
+                  "dotnetType": "void"
+                },
+                "type": "invoke-method"
+              }
+            ]
+          },
+          "headers": [],
+          "name": "upload0",
+          "style": {
+            "width": "281.609375px"
+          },
+          "type": "upload",
+          "url": "upload/single"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "layout": "Main",
+  "name": "uploadfilesandsave"
+}

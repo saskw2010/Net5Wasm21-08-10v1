@@ -1,0 +1,862 @@
+{
+  "access": "Authenticated",
+  "components": [
+    {
+      "components": [
+        {
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Edit Productindex",
+          "type": "heading"
+        },
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "productindex",
+                        "type": "navigate"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "label0",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Another user has made conflicting changes to one or more of the fields you have modified. Please reload.",
+                  "type": "label",
+                  "visible": "${hasChanges}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "code": "await this.Load()",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "icon": "autorenew",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Reload",
+                  "type": "button",
+                  "visible": "${hasChanges}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "CreatedOn",
+                              "name": "CreatedOnLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Created On",
+                              "type": "label",
+                              "visible": false
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "CreatedOn",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "datepicker",
+                              "value": "${product.CreatedOn}",
+                              "valueType": "DateTime",
+                              "visible": false
+                            },
+                            {
+                              "component": "CreatedOn",
+                              "name": "CreatedOnRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "CreatedOn is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "ModifiedOn",
+                              "name": "ModifiedOnLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Modified On",
+                              "type": "label",
+                              "visible": false
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "ModifiedOn",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "datepicker",
+                              "value": "${product.ModifiedOn}",
+                              "valueType": "DateTime?",
+                              "visible": false
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "IsDeleted",
+                              "name": "IsDeletedLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Is Deleted",
+                              "type": "label",
+                              "visible": false
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "IsDeleted",
+                              "type": "checkbox",
+                              "value": "${product.IsDeleted}",
+                              "valueType": "bool",
+                              "visible": false
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "DeletedOn",
+                              "name": "DeletedOnLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Deleted On",
+                              "type": "label",
+                              "visible": false
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "DeletedOn",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "datepicker",
+                              "value": "${product.DeletedOn}",
+                              "valueType": "DateTime?",
+                              "visible": false
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Name",
+                              "name": "NameLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Name",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "Name",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${product.Name}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "Name",
+                              "name": "NameRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Name is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Description",
+                              "name": "DescriptionLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Description",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 1000,
+                              "name": "Description",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${product.Description}",
+                              "valueType": "string"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "ImageSource",
+                              "name": "ImageSourceLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Image Source",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "disabled": true,
+                              "maxLength": 2048,
+                              "name": "ImageSource",
+                              "placeholder": "",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${product.ImageSource}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "ImageSource",
+                              "name": "ImageSourceRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "ImageSource is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Quantity",
+                              "name": "QuantityLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Quantity",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "Quantity",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "numeric",
+                              "value": "${product.Quantity}",
+                              "valueType": "int"
+                            },
+                            {
+                              "component": "Quantity",
+                              "name": "QuantityRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Quantity is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Price",
+                              "name": "PriceLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Price",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "Price",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "numeric",
+                              "value": "${product.Price}",
+                              "valueType": "decimal"
+                            },
+                            {
+                              "component": "Price",
+                              "name": "PriceRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Price is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "CategoryId",
+                              "name": "CategoryIdLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Category",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "count": "${getCategoriesForCategoryIdCount}",
+                              "data": "${getCategoriesForCategoryIdResult}",
+                              "events": {
+                                "loadData": [
+                                  {
+                                    "name": "net5wasmconn.getCategories",
+                                    "parameters": [
+                                      {
+                                        "name": "$top",
+                                        "value": "${event.top}"
+                                      },
+                                      {
+                                        "name": "$skip",
+                                        "value": "${event.skip}"
+                                      },
+                                      {
+                                        "name": "$orderby",
+                                        "value": "${event.orderby}"
+                                      },
+                                      {
+                                        "name": "$filter",
+                                        "value": "${event.filter}"
+                                      },
+                                      {
+                                        "name": "$count",
+                                        "value": "true"
+                                      }
+                                    ],
+                                    "then": [
+                                      {
+                                        "name": "getCategoriesForCategoryIdResult",
+                                        "type": "set",
+                                        "value": "${result.Value.AsODataEnumerable()}",
+                                        "valueType": "IEnumerable<Net5Wasm.Models.Net5Wasmconn.Category>"
+                                      },
+                                      {
+                                        "name": "getCategoriesForCategoryIdCount",
+                                        "type": "set",
+                                        "value": "result.Count"
+                                      }
+                                    ],
+                                    "type": "invoke"
+                                  }
+                                ]
+                              },
+                              "name": "CategoryId",
+                              "placeholder": "Choose Category",
+                              "selectedValue": "${getByCategoriesForCategoryIdResult}",
+                              "showSearch": false,
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "textProperty": "Name",
+                              "type": "dropdown-datagrid",
+                              "value": "${product.CategoryId}",
+                              "valueProperty": "Id",
+                              "valueType": "int"
+                            },
+                            {
+                              "component": "CategoryId",
+                              "defaultValue": "0",
+                              "name": "CategoryIdRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "CategoryId is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "ETag",
+                              "name": "ETagLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "E Tag",
+                              "type": "label",
+                              "visible": false
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "ETag",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${product.ETag}",
+                              "valueType": "string",
+                              "visible": false
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "CategoryId",
+                              "name": "label1",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Category",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col2",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "attributes": [
+                                {
+                                  "name": "src",
+                                  "value": "@(product.ImageSource)"
+                                }
+                              ],
+                              "name": "image0",
+                              "path": "",
+                              "style": {
+                                "borderRadius": "14px",
+                                "display": "inline-block",
+                                "height": "170px",
+                                "textAlign": "center",
+                                "verticalAlign": "middle",
+                                "width": "170px"
+                              },
+                              "type": "image"
+                            }
+                          ],
+                          "name": "col3",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row1",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "path": "productindex",
+                                    "type": "navigate"
+                                  }
+                                ]
+                              },
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${product}",
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Product",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "net5wasmconn.updateProduct",
+                        "parameters": [
+                          {
+                            "name": "Id",
+                            "value": "Convert.ChangeType(${parameters.Id}, Type.GetTypeCode(typeof(int)))"
+                          },
+                          {
+                            "name": "Product",
+                            "value": "${product}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "condition": "result.StatusCode != System.Net.HttpStatusCode.PreconditionFailed",
+                            "path": "productindex",
+                            "type": "navigate"
+                          },
+                          {
+                            "name": "hasChanges",
+                            "type": "set",
+                            "value": "result.StatusCode == System.Net.HttpStatusCode.PreconditionFailed",
+                            "valueType": "bool"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "Net5Wasm.Models.Net5Wasmconn.Product",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${product != null && canEdit}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "hasChanges",
+        "type": "set",
+        "value": "false",
+        "valueType": "bool"
+      },
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "error": [],
+        "name": "net5wasmconn.getProductById",
+        "parameters": [
+          {
+            "name": "Id",
+            "value": "Convert.ChangeType(${parameters.Id}, Type.GetTypeCode(typeof(int)))"
+          }
+        ],
+        "then": [
+          {
+            "name": "product",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "Net5Wasm.Models.Net5Wasmconn.Product"
+          },
+          {
+            "name": "canEdit",
+            "type": "set",
+            "value": "result != null",
+            "valueType": "bool"
+          },
+          {
+            "condition": "this.product.CategoryId != null",
+            "name": "net5wasmconn.getCategoryById",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${this.product.CategoryId}"
+              }
+            ],
+            "then": [
+              {
+                "name": "getByCategoriesForCategoryIdResult",
+                "type": "set",
+                "value": "${result}",
+                "valueType": "Net5Wasm.Models.Net5Wasmconn.Category"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "Edit Productindex"
+}
