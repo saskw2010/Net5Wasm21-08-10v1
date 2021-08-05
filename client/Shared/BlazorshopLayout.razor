@@ -1,0 +1,81 @@
+﻿@inherits Net5Wasm.Layouts.BlazorshopLayoutComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Net5Wasm.Models.Net5Wasmconn
+@using Microsoft.AspNetCore.Identity;
+@using Net5Wasm.Models
+<RadzenDialog />
+<RadzenNotification />
+<RadzenTooltip />
+<RadzenContextMenu />
+
+<RadzenHeader>
+  <ChildContent>
+    <div class="row justify-content-start align-items-center">
+      <div class="col-md-6 d-flex align-items-center" style="padding-left: 30px">
+        <RadzenLabel Text="Net5Wasm">
+        </RadzenLabel>
+        <RadzenMenu style=@($"height: 50px;flex: auto")>
+          <ChildContent>
+            <RadzenMenuItem Icon="shopping_cart" Text="Blazorshop">
+              <ChildContent>
+                <RadzenMenuItem Path="testmosso" Text="testmosso">
+                </RadzenMenuItem>
+              </ChildContent>
+            </RadzenMenuItem>
+            <RadzenMenuItem Icon="pan_tool" Text="Tools Menu" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+              <ChildContent>
+                <RadzenMenuItem Path="uploadfilesandsave" Text="uploadfilesandsave">
+                </RadzenMenuItem>
+              </ChildContent>
+            </RadzenMenuItem>
+            <RadzenMenuItem Icon="admin_panel_settings" Text="Admin Menu" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+              <ChildContent>
+                <RadzenMenuItem Path="categories" Text="Categories">
+                </RadzenMenuItem>
+                <RadzenMenuItem Path="orders" Text="Orders">
+                </RadzenMenuItem>
+                <RadzenMenuItem Path="orders-products" Text="Orders Products">
+                </RadzenMenuItem>
+                <RadzenMenuItem Path="products" Text="Products">
+                </RadzenMenuItem>
+                <RadzenMenuItem Path="addresses" Text="Addresses">
+                </RadzenMenuItem>
+                <RadzenMenuItem Path="shopping-carts" Text="Shopping Carts">
+                </RadzenMenuItem>
+                <RadzenMenuItem Path="shopping-carts-products" Text="Shopping Carts Products">
+                </RadzenMenuItem>
+                <RadzenMenuItem Path="wishlists" Text="Wishlists">
+                </RadzenMenuItem>
+                <RadzenMenuItem Path="wishlists-products" Text="Wishlists Products">
+                </RadzenMenuItem>
+                <RadzenMenuItem Path="copy-of-products" Text="Copy of Products">
+                </RadzenMenuItem>
+                <RadzenMenuItem Path="productindex" Text="Productindex">
+                </RadzenMenuItem>
+                <RadzenMenuItem Text="Item 11">
+                </RadzenMenuItem>
+              </ChildContent>
+            </RadzenMenuItem>
+          </ChildContent>
+        </RadzenMenu>
+      </div>
+      <div class="col-md-6 text-lg-right">
+      </div>
+    </div>
+  </ChildContent>
+</RadzenHeader>
+<RadzenBody @ref="body0" style="margin-left: 0px; margin-top: 58px">
+  <ChildContent>
+    <RadzenContentContainer Name="main">
+    @Body
+    </RadzenContentContainer>
+  </ChildContent>
+</RadzenBody>
+<RadzenFooter>
+  <ChildContent>
+    <RadzenLabel Text="Net5Wasm, Copyright Ⓒ 2021">
+    </RadzenLabel>
+  </ChildContent>
+</RadzenFooter>

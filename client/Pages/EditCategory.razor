@@ -99,9 +99,6 @@
               <div class="col-md-9">
                 <RadzenTextBox MaxLength="2048" style="width: 100%" @bind-Value="@(category.ImageSource)" Name="ImageSource">
                 </RadzenTextBox>
-               
-                <RadzenUpload style="width: 264.609375px">
-                </RadzenUpload>
               </div>
             </div>
             <div class="row">
@@ -116,5 +113,39 @@
         </RadzenTemplateForm>
       </div>
     </div>
+    <RadzenTemplateForm Data="@category" TItem="Net5Wasm.Models.Net5Wasmconn.Category" Visible="@(category != null)">
+      <ChildContent>
+        <div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Component="textBox1" style="width: 100%" Text="Label1">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenDataList @ref="datalist0" AllowPaging="true" Count="@getCategoriesCount" Data="@getCategoriesResult" TItem="Net5Wasm.Models.Net5Wasmconn.Category" PageSize="10" LoadData="@Datalist0LoadData">
+              <Template Context="data">
+               <RadzenCard>
+                 <div class="col-md-3">
+                                      <div class="card card-product-grid">
+                                          <a href="products/category/@data.Name/@data.Id" class="img-wrap">
+                                              <img src="@data.ImageSource">
+                                          </a>
+                                          <figcaption class="info-wrap">
+                                              <a href="products/category/@data.Name/@data.Id" class="title">
+                                                  @data.Name
+                                              </a>
+              
+                                              @*<div class="price mt-1">$@product.Price</div>*@
+                                          </figcaption>
+                                      </div>
+                                  </div>
+                              <RadzenImage src="@data.ImageSource" Style="width:100px;" />
+               </RadzenCard>
+               
+              </Template>
+            </RadzenDataList>
+          </div>
+        </div>
+      </ChildContent>
+    </RadzenTemplateForm>
   </ChildContent>
 </RadzenContent>

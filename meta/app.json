@@ -1,5 +1,21 @@
 {
-  "cssFiles": [],
+  "cssFiles": [
+    {
+      "value": "blazorshop/css/bootstrap.css"
+    },
+    {
+      "value": "blazorshop/fonts/fontawesome/css/all.min.css"
+    },
+    {
+      "value": "blazorshop/css/ui.css"
+    },
+    {
+      "value": "blazorshop/css/loader.css"
+    },
+    {
+      "value": "blazorshop/css/responsive.css"
+    }
+  ],
   "dataSources": [
     "net5wasmconn"
   ],
@@ -8,10 +24,21 @@
   "ignore": [
     ""
   ],
-  "javaScriptFiles": [],
+  "javaScriptFiles": [
+    {
+      "value": "blazorshop/js/jquery-2.0.0.min.js"
+    },
+    {
+      "value": "blazorshop/js/bootstrap.bundle.min.js"
+    },
+    {
+      "value": "blazorshop/js/script.js"
+    }
+  ],
   "layouts": [
     "Login",
-    "Main"
+    "Main",
+    "Blazorshop"
   ],
   "logo": "",
   "name": "Net5Wasm",
@@ -28,7 +55,8 @@
     "Wishlists Products",
     "uploadfilesandsave",
     "Copy of Products",
-    "Productindex"
+    "Productindex",
+    "testmosso"
   ],
   "pages": [
     "Addresses",
@@ -71,7 +99,8 @@
     "Copy of Products",
     "Productindex",
     "Add Productindex",
-    "Edit Productindex"
+    "Edit Productindex",
+    "testmosso"
   ],
   "port": 8000,
   "pwa": true,
@@ -95,7 +124,7 @@
   "serverPort": 5000,
   "serverProject": true,
   "serverVersion": "5",
-  "startPage": "Productindex",
+  "startPage": "testmosso",
   "theme": "humanistic",
   "title": "Net5Wasm",
   "wasm": true

@@ -339,4 +339,3 @@ C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\server\obj\Debug\n
 C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\server\obj\Debug\net5.0\ref\Net5Wasm.Server.dll
 C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\server\obj\Debug\net5.0\Net5Wasm.Server.pdb
 C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\server\obj\Debug\net5.0\Net5Wasm.Server.genruntimeconfig.cache
-C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\server\bin\Debug\net5.0\zh-CHS\Net5Wasm.Client.resources.dll

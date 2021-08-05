@@ -83,56 +83,55 @@ using Net5Wasm.Client.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
+#line 5 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
 using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
+#line 6 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
 using Radzen.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
+#line 7 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
 using Net5Wasm.Models.Net5Wasmconn;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
+#line 8 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
+#line 9 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
 using Net5Wasm.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
+#line 10 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
+#line 11 "C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\Pages\Productindex.razor"
            [Authorize]
 
 #line default
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.LayoutAttribute(typeof(MainLayout))]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     [Microsoft.AspNetCore.Components.RouteAttribute("/productindex")]
     public partial class Productindex : Net5Wasm.Pages.ProductindexComponent
     {

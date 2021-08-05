@@ -1,0 +1,120 @@
+{
+  "access": "Authenticated",
+  "components": [
+    {
+      "components": [
+        {
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "testmosso",
+          "type": "heading"
+        },
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "class": "col-md-9",
+                  "components": [
+                    {
+                      "allowPaging": true,
+                      "count": "${getCategoriesCount}",
+                      "data": "${getCategoriesResult}",
+                      "events": {
+                        "loadData": [
+                          {
+                            "name": "net5wasmconn.getCategories",
+                            "parameters": [
+                              {
+                                "name": "$top",
+                                "value": "event.top"
+                              },
+                              {
+                                "name": "$skip",
+                                "value": "event.skip"
+                              },
+                              {
+                                "name": "$count",
+                                "value": "event.top != null && event.skip != null"
+                              }
+                            ],
+                            "then": [
+                              {
+                                "name": "getCategoriesResult",
+                                "type": "set",
+                                "value": "${result.Value.AsODataEnumerable()}",
+                                "valueType": "IEnumerable<Net5Wasm.Models.Net5Wasmconn.Category>"
+                              },
+                              {
+                                "name": "getCategoriesCount",
+                                "type": "set",
+                                "value": "${result.Count}",
+                                "valueType": "int"
+                              }
+                            ],
+                            "type": "invoke"
+                          }
+                        ]
+                      },
+                      "itemType": "Net5Wasm.Models.Net5Wasmconn.Category",
+                      "name": "datalist0",
+                      "pageSize": 10,
+                      "template": " <RadzenCard>\n   <div class=\"col-md-3\">\n                        <div class=\"card card-product-grid\">\n                            <a href=\"products/category/@data.Name/@data.Id\" class=\"img-wrap\">\n                                <img src=\"@data.ImageSource\">\n                            </a>\n                            <figcaption class=\"info-wrap\">\n                                <a href=\"products/category/@data.Name/@data.Id\" class=\"title\">\n                                    @data.Name\n                                </a>\n\n                                @*<div class=\"price mt-1\">$@product.Price</div>*@\n                            </figcaption>\n                        </div>\n                    </div>\n                <div>@data.ImageSource</div>\n </RadzenCard>\n ",
+                      "type": "datalist",
+                      "wrapItems": true
+                    }
+                  ],
+                  "name": "col3",
+                  "type": "col"
+                }
+              ],
+              "name": "row1",
+              "style": {
+                "marginBottom": "1rem"
+              },
+              "type": "row"
+            }
+          ],
+          "data": "${categorylist}",
+          "itemType": "Radzen.ODataServiceResult<Net5Wasm.Models.Net5Wasmconn.Category>",
+          "name": "templateForm0",
+          "type": "template-form",
+          "visible": true
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "hasChanges",
+        "type": "set",
+        "value": "false",
+        "valueType": "bool"
+      },
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "net5wasmconn.getCategories",
+        "parameters": [],
+        "then": [
+          {
+            "name": "categorylist",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "Radzen.ODataServiceResult<Net5Wasm.Models.Net5Wasmconn.Category>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "layout": "Blazorshop",
+  "name": "testmosso"
+}

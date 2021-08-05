@@ -1,0 +1,50 @@
+﻿@page "/"
+@page "/testmosso"
+@layout BlazorshopLayout
+@inherits Net5Wasm.Pages.TestmossoComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Net5Wasm.Models.Net5Wasmconn
+@using Microsoft.AspNetCore.Identity;
+@using Net5Wasm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="testmosso">
+    </RadzenHeading>
+    <RadzenTemplateForm Data="@categorylist" TItem="Radzen.ODataServiceResult<Net5Wasm.Models.Net5Wasmconn.Category>">
+      <ChildContent>
+        <div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-9">
+            <RadzenDataList @ref="datalist0" AllowPaging="true" Count="@getCategoriesCount" Data="@getCategoriesResult" TItem="Net5Wasm.Models.Net5Wasmconn.Category" PageSize="10" WrapItems="true" LoadData="@Datalist0LoadData">
+              <Template Context="data">
+               <RadzenCard>
+                 <div class="col-md-3">
+                                      <div class="card card-product-grid">
+                                          <a href="products/category/@data.Name/@data.Id" class="img-wrap">
+                                              <img src="@data.ImageSource">
+                                          </a>
+                                          <figcaption class="info-wrap">
+                                              <a href="products/category/@data.Name/@data.Id" class="title">
+                                                  @data.Name
+                                              </a>
+              
+                                              @*<div class="price mt-1">$@product.Price</div>*@
+                                          </figcaption>
+                                      </div>
+                                  </div>
+                              <div>@data.ImageSource</div>
+               </RadzenCard>
+               
+              </Template>
+            </RadzenDataList>
+          </div>
+        </div>
+      </ChildContent>
+    </RadzenTemplateForm>
+  </ChildContent>
+</RadzenContent>

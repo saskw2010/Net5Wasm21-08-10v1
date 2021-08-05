@@ -1,0 +1,156 @@
+{
+  "components": [
+    {
+      "components": [
+        {
+          "class": "justify-content-start align-items-center",
+          "components": [
+            {
+              "class": "col-md-6 d-flex align-items-center",
+              "components": [
+                {
+                  "name": "label0",
+                  "text": "Net5Wasm",
+                  "type": "label"
+                },
+                {
+                  "attributes": [
+                    {
+                      "name": "style",
+                      "value": "flex: auto"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "icon": "shopping_cart",
+                      "items": [
+                        {
+                          "path": "testmosso",
+                          "text": "testmosso"
+                        }
+                      ],
+                      "text": "Blazorshop"
+                    },
+                    {
+                      "icon": "pan_tool",
+                      "items": [
+                        {
+                          "path": "uploadfilesandsave",
+                          "text": "uploadfilesandsave"
+                        }
+                      ],
+                      "path": "",
+                      "text": "Tools Menu",
+                      "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
+                    },
+                    {
+                      "icon": "admin_panel_settings",
+                      "items": [
+                        {
+                          "path": "categories",
+                          "text": "Categories"
+                        },
+                        {
+                          "path": "orders",
+                          "text": "Orders"
+                        },
+                        {
+                          "path": "orders-products",
+                          "text": "Orders Products"
+                        },
+                        {
+                          "path": "products",
+                          "text": "Products"
+                        },
+                        {
+                          "path": "addresses",
+                          "text": "Addresses"
+                        },
+                        {
+                          "path": "shopping-carts",
+                          "text": "Shopping Carts"
+                        },
+                        {
+                          "path": "shopping-carts-products",
+                          "text": "Shopping Carts Products"
+                        },
+                        {
+                          "path": "wishlists",
+                          "text": "Wishlists"
+                        },
+                        {
+                          "path": "wishlists-products",
+                          "text": "Wishlists Products"
+                        },
+                        {
+                          "path": "copy-of-products",
+                          "text": "Copy of Products"
+                        },
+                        {
+                          "path": "productindex",
+                          "text": "Productindex"
+                        },
+                        {
+                          "text": "Item 11"
+                        }
+                      ],
+                      "path": "",
+                      "text": "Admin Menu",
+                      "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
+                    }
+                  ],
+                  "name": "menu0",
+                  "style": {
+                    "height": "50px"
+                  },
+                  "type": "menu"
+                }
+              ],
+              "name": "leftCol",
+              "style": {
+                "paddingLeft": "30px"
+              },
+              "type": "col"
+            },
+            {
+              "class": "col-md-6 text-lg-right",
+              "name": "rightCol",
+              "type": "col"
+            }
+          ],
+          "name": "headerRow",
+          "type": "row"
+        }
+      ],
+      "name": "header0",
+      "type": "header"
+    },
+    {
+      "attributes": [],
+      "components": [
+        {
+          "name": "main",
+          "type": "content-container"
+        }
+      ],
+      "name": "body0",
+      "style": {
+        "marginLeft": "0px",
+        "marginTop": "58px"
+      },
+      "type": "body"
+    },
+    {
+      "components": [
+        {
+          "name": "footerText",
+          "text": "Net5Wasm, Copyright Ⓒ 2021",
+          "type": "label"
+        }
+      ],
+      "name": "footer0",
+      "type": "footer"
+    }
+  ],
+  "name": "Blazorshop"
+}

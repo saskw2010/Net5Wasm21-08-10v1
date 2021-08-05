@@ -69,7 +69,5 @@ namespace Net5Wasm.Pages
         {
             OnProgress(args,$"Single file upload");
         }
-
-       
     }
 }

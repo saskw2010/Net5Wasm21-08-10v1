@@ -81,76 +81,95 @@
         {
           "items": [
             {
-              "path": "addresses",
-              "text": "Addresses",
+              "expanded": false,
+              "icon": "settings_applications",
+              "items": [
+                {
+                  "icon": "category",
+                  "path": "categories",
+                  "text": "Categories"
+                },
+                {
+                  "icon": "shopping_bag",
+                  "path": "products",
+                  "text": "Products"
+                },
+                {
+                  "icon": "view_list",
+                  "path": "orders",
+                  "text": "Orders"
+                },
+                {
+                  "icon": "shopping_cart",
+                  "path": "shopping-carts",
+                  "text": "Shopping Carts"
+                },
+                {
+                  "icon": "web_asset",
+                  "path": "wishlists",
+                  "text": "Wishlists"
+                },
+                {
+                  "icon": "home",
+                  "path": "addresses",
+                  "text": "Addresses"
+                },
+                {
+                  "path": "orders-products",
+                  "text": "Orders Products"
+                },
+                {
+                  "path": "shopping-carts-products",
+                  "text": "Shopping Carts Products"
+                },
+                {
+                  "path": "wishlists-products",
+                  "text": "Wishlists Products"
+                },
+                {
+                  "text": "Item 9"
+                }
+              ],
+              "text": "Admin Menu",
               "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
             },
             {
-              "path": "categories",
-              "text": "Categories",
+              "icon": "shopping_cart",
+              "items": [
+                {
+                  "path": "Uploadpagez",
+                  "text": "Uploadpagez"
+                },
+                {
+                  "icon": "perm_media",
+                  "path": "uploadpage",
+                  "text": "uploadpage"
+                },
+                {
+                  "icon": "cloud_upload",
+                  "path": "uploadfilesandsave",
+                  "text": "uploadfilesandsave"
+                },
+                {
+                  "path": "productindex",
+                  "text": "Productindex"
+                },
+                {
+                  "path": "copy-of-products",
+                  "text": "Copy of Products"
+                },
+                {
+                  "path": "edit-category",
+                  "text": "categorylist"
+                },
+                {
+                  "icon": "work",
+                  "path": "testmosso",
+                  "text": "testmosso"
+                }
+              ],
+              "text": "Blazorshop",
               "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "path": "orders",
-              "text": "Orders",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "path": "orders-products",
-              "text": "Orders Products",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "path": "products",
-              "text": "Products",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "path": "shopping-carts",
-              "text": "Shopping Carts",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "path": "shopping-carts-products",
-              "text": "Shopping Carts Products",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "path": "wishlists",
-              "text": "Wishlists",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "path": "wishlists-products",
-              "text": "Wishlists Products",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "icon": "cloud_upload",
-              "path": "uploadfilesandsave",
-              "text": "uploadfilesandsave",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "icon": "perm_media",
-              "path": "uploadpage",
-              "target": "_self",
-              "text": "uploadpage",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "path": "copy-of-products",
-              "text": "Copy of Products",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "path": "productindex",
-              "text": "Productindex",
-              "visible": "@Security.IsInRole(new string[]{\"Everybody\"})"
-            },
-            {
-              "path": "Uploadpagez",
-              "text": "Uploadpagez"
             }
           ],
           "name": "panelmenu0",

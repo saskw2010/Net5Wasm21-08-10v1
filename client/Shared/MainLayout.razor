@@ -51,33 +51,47 @@
   <ChildContent>
     <RadzenPanelMenu style="height: 100%">
       <ChildContent>
-        <RadzenPanelMenuItem Path="addresses" Text="Addresses" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+        <RadzenPanelMenuItem Expanded="false" Icon="settings_applications" Text="Admin Menu" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+          <ChildContent>
+            <RadzenPanelMenuItem Icon="category" Path="categories" Text="Categories">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Icon="shopping_bag" Path="products" Text="Products">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Icon="view_list" Path="orders" Text="Orders">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Icon="shopping_cart" Path="shopping-carts" Text="Shopping Carts">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Icon="web_asset" Path="wishlists" Text="Wishlists">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Icon="home" Path="addresses" Text="Addresses">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Path="orders-products" Text="Orders Products">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Path="shopping-carts-products" Text="Shopping Carts Products">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Path="wishlists-products" Text="Wishlists Products">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Item 9">
+            </RadzenPanelMenuItem>
+          </ChildContent>
         </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="categories" Text="Categories" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="orders" Text="Orders" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="orders-products" Text="Orders Products" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="products" Text="Products" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="shopping-carts" Text="Shopping Carts" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="shopping-carts-products" Text="Shopping Carts Products" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="wishlists" Text="Wishlists" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="wishlists-products" Text="Wishlists Products" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Icon="cloud_upload" Path="uploadfilesandsave" Text="uploadfilesandsave" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Icon="perm_media" Path="uploadpage" Target="_self" Text="uploadpage" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="copy-of-products" Text="Copy of Products" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="productindex" Text="Productindex" Visible="@Security.IsInRole(new string[]{"Everybody"})">
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Path="Uploadpagez" Text="Uploadpagez">
+        <RadzenPanelMenuItem Icon="shopping_cart" Text="Blazorshop" Visible="@Security.IsInRole(new string[]{"Everybody"})">
+          <ChildContent>
+            <RadzenPanelMenuItem Path="Uploadpagez" Text="Uploadpagez">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Icon="perm_media" Path="uploadpage" Text="uploadpage">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Icon="cloud_upload" Path="uploadfilesandsave" Text="uploadfilesandsave">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Path="productindex" Text="Productindex">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Path="copy-of-products" Text="Copy of Products">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Path="edit-category" Text="categorylist">
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Icon="work" Path="testmosso" Text="testmosso">
+            </RadzenPanelMenuItem>
+          </ChildContent>
         </RadzenPanelMenuItem>
       </ChildContent>
     </RadzenPanelMenu>

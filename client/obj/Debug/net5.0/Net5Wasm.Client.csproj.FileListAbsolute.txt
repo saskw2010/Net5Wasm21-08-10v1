@@ -2878,3 +2878,7 @@ C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\obj\Debug\n
 C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\obj\Debug\net5.0\Razor\Pages\EditProductindex.razor.g.cs
 C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\obj\Debug\net5.0\Razor\Pages\Productindex.razor.g.cs
 C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\obj\Debug\net5.0\Net5Wasm.Client.csproj.AssemblyReference.cache
+C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\obj\Debug\net5.0\RazorDeclaration\Shared\BlazorshopLayout.razor.g.cs
+C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\obj\Debug\net5.0\Razor\Shared\BlazorshopLayout.razor.g.cs
+C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\obj\Debug\net5.0\RazorDeclaration\Pages\Testmosso.razor.g.cs
+C:\2021-06-HP-D-drive\2021_07_Radzen_WorkRunning-CPD\Net5Wasm\client\obj\Debug\net5.0\Razor\Pages\Testmosso.razor.g.cs

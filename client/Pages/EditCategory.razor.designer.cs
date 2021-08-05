@@ -58,6 +58,7 @@ namespace Net5Wasm.Pages
 
         [Parameter]
         public dynamic Id { get; set; }
+        protected RadzenDataList<Net5Wasm.Models.Net5Wasmconn.Category> datalist0;
 
         bool _hasChanges;
         protected bool hasChanges
@@ -110,6 +111,44 @@ namespace Net5Wasm.Pages
                 {
                     var args = new PropertyChangedEventArgs(){ Name = "category", NewValue = value, OldValue = _category };
                     _category = value;
+                    OnPropertyChanged(args);
+                    Reload();
+                }
+            }
+        }
+
+        IEnumerable<Net5Wasm.Models.Net5Wasmconn.Category> _getCategoriesResult;
+        protected IEnumerable<Net5Wasm.Models.Net5Wasmconn.Category> getCategoriesResult
+        {
+            get
+            {
+                return _getCategoriesResult;
+            }
+            set
+            {
+                if (!object.Equals(_getCategoriesResult, value))
+                {
+                    var args = new PropertyChangedEventArgs(){ Name = "getCategoriesResult", NewValue = value, OldValue = _getCategoriesResult };
+                    _getCategoriesResult = value;
+                    OnPropertyChanged(args);
+                    Reload();
+                }
+            }
+        }
+
+        int _getCategoriesCount;
+        protected int getCategoriesCount
+        {
+            get
+            {
+                return _getCategoriesCount;
+            }
+            set
+            {
+                if (!object.Equals(_getCategoriesCount, value))
+                {
+                    var args = new PropertyChangedEventArgs(){ Name = "getCategoriesCount", NewValue = value, OldValue = _getCategoriesCount };
+                    _getCategoriesCount = value;
                     OnPropertyChanged(args);
                     Reload();
                 }
@@ -170,6 +209,14 @@ namespace Net5Wasm.Pages
         protected async System.Threading.Tasks.Task Button4Click(MouseEventArgs args)
         {
             DialogService.Close(null);
+        }
+
+        protected async System.Threading.Tasks.Task Datalist0LoadData(LoadDataArgs args)
+        {
+            var net5WasmconnGetCategoriesResult = await Net5Wasmconn.GetCategories(top:args.Top, skip:args.Skip, count:args.Top != null && args.Skip != null);
+            getCategoriesResult = net5WasmconnGetCategoriesResult.Value.AsODataEnumerable();
+
+            getCategoriesCount = net5WasmconnGetCategoriesResult.Count;
         }
     }
 }
